@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using Serilog;
+using Serilog.Formatting.Compact;
 
 namespace LoggingExample
 {
@@ -19,6 +21,11 @@ namespace LoggingExample
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+            
+            /*config.Services.Add(typeof(LoggerConfiguration), new LoggerConfiguration()
+           .WriteTo.Console()
+           .WriteTo.File(new CompactJsonFormatter(), @"D:\Log.json")
+           .CreateLogger());*/
         }
     }
 }
