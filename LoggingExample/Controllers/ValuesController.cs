@@ -23,11 +23,15 @@ namespace LoggingExample.Controllers
         public HttpResponseMessage Get()
         {
             var values = new string[] { "value11", "value21" };
-            log.Information("values: {0} and {1} have been generated", values[0], values[1]);
-            log.Error("values: {0} and {1} have been generated", values[0], values[1]);
-            log.Warning("values: {0} and {1} have been generated", values[0], values[1]);
-            log.Debug("values: {0} and {1} have been generated", values[0], values[1]);
-            log.Fatal("values: {0} and {1} have been generated {2}", values[0], values[1], Request.GetCorrelationId());
+            for (int i = 0; i < 100; i++)
+            {
+                log.Information("values: {0} and {1} have been generated", values[0], values[1]);
+                log.Error("values: {0} and {1} have been generated", values[0], values[1]);
+                log.Warning("values: {0} and {1} have been generated", values[0], values[1]);
+                log.Debug("values: {0} and {1} have been generated", values[0], values[1]);
+                log.Fatal("values: {0} and {1} have been generated {2}", values[0], values[1], Request.GetCorrelationId());
+            }
+            
 
             
 
