@@ -13,16 +13,16 @@ namespace LoggingExample.Controllers
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
         // GET api/values
-        public IEnumerable<string> Get()
+        public HttpResponseMessage Get()
         {
             var values = new string[] { "value11", "value21" };
             for (int i = 0; i < 100; i++)
             {
-                log.Info("values: {0} and {1} have been generated", values[0], values[1]);
-                log.Error("values: {0} and {1} have been generated", values[0], values[1]);
-                log.Warn("values: {0} and {1} have been generated", values[0], values[1]);
-                log.Debug("values: {0} and {1} have been generated", values[0], values[1]);
-                log.Fatal("values: {0} and {1} have been generated {2}", values[0], values[1], Request.GetCorrelationId());
+                log.InfoFormat("values: {0} and {1} have been generated", values[0], values[1]);
+                log.ErrorFormat("values: {0} and {1} have been generated", values[0], values[1]);
+                log.WarnFormat("values: {0} and {1} have been generated", values[0], values[1]);
+                log.DebugFormat("values: {0} and {1} have been generated", values[0], values[1]);
+                log.FatalFormat("values: {0} and {1} have been generated {2}", values[0], values[1], Request.GetCorrelationId());
             }
 
 
